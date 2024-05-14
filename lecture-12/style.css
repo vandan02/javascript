@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(244, 242, 242);
+}
+#products{display: grid;grid-template-columns: repeat(4,1fr);
+gap: 40px; margin-top: 40px;}
+#products div img{height: 200px;  transition: 3s;}
+#products div img:hover{transform: scale(1.2);}
+#products div{
+    
+    display: grid;
+    place-items: center;
+    border: 4px dotted ;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    background-color: white;
+    padding: 10px;}
