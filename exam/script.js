@@ -4,14 +4,16 @@ let array = [];
 const fire = (index) => {
   array.splice(index, 1);
   uimaker();
-  ui2()
+  
 };
 
 const uimaker = () => {
+  
   let salary = 0;
   document.getElementById("tbody").innerHTML = "";
 
   array.map((ele, i) => {
+    
     let tr = document.createElement("tr");
     let td1 = document.createElement("td");
     td1.innerHTML = ele.empname;
@@ -21,9 +23,8 @@ const uimaker = () => {
     td3.innerHTML = ele.department;
     let td4 = document.createElement("td");
     td4.innerHTML = ele.salary;
-    // salary+=td4.value
-    // let total = document.createElement("div");
-    salary.value += td4.innerHTML.value;
+    
+     
     let td5 = document.createElement("td");
     td5.innerHTML = ele.email;
     let td6 = document.createElement("td");
@@ -34,17 +35,20 @@ const uimaker = () => {
     } else {
       td7.innerHTML = "junior";
     }
+   
     let td8 = document.createElement("th");
     td8.innerHTML = "fire";
     td8.style.backgroundColor = "red";
     td8.addEventListener("click", () => fire(i));
     tr.append(td1, td2, td3, td4, td5, td6, td7, td8);
     document.getElementById("tbody").append(tr);
-    document.getElementById("add2").innerHTML = (`total salary is=${salary}`);
+    
+    
 ui2()
 
-    // document.getElementById("add").innerHTML = (`total salary is=${total}`);
+    
   });
+
 };
 
 const hdata = (e) => {
@@ -75,10 +79,16 @@ document.getElementById("fireall").addEventListener("click", () => {
 
  const ui2 = () => {
   let total = 0;
-  let salary;
+  let salary=0;
   array.map((ele, i) => {
     total++
+    
    });
+array.map((ele,i)=>{
+  salary=Number(salary)+Number(ele.salary)
+})
+
   
   document.getElementById("add").innerHTML = (`total employe is=${total}`);
+  document.getElementById("add2").innerHTML = (`total salary is=${salary}`);
 };
