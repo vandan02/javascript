@@ -3,6 +3,7 @@ let array = [];
 const fire = (index) => {
   array.splice(index, 1);
   uimaker();
+  ui2()
 };
 
 const uimaker = () => {
