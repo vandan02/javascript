@@ -47,24 +47,24 @@
     <center>
         <h2 class="text-white pb-2">hire a new employe</h2>
         <form id="form">
-            <input type="text" placeholder="employee name" class="w-25 " id="empname"><br><br>
-            <select class="form-select w-25" aria-label="Default select example" id="role">
+            <input type="text" placeholder="employee name" class="w-25 " id="empname" required><br><br>
+            <select class="form-select w-25" aria-label="Default select example" id="role" required>
                 <option selected>select job role</option>
                 <option>contacter</option>
                 <option>supervisor</option>
                 <option>maneger</option>
             </select>
             <br>
-            <select class="form-select w-25" aria-label="Default select example" id="department">
+            <select class="form-select w-25" aria-label="Default select example" id="department"  required>
                 <option>select department</option>
                 <option>full stack dev.</option>
                 <option>fluter dev.</option>
                 <option>paython dev.</option>
             </select>
             <br>
-            <input type="number" placeholder="monthly salary" class="w-25" id="salary"><br><br>
-            <input type="number" placeholder="pre eork expiriance in year" class="w-25" id="exp"><br><br>
-            <input type="email" placeholder="contact email" class="w-25 " id="email"><br><br>
+            <input type="number" placeholder="monthly salary" class="w-25" id="salary"  required><br><br>
+            <input type="number" placeholder="pre eork expiriance in year" class="w-25" id="exp"  required><br><br>
+            <input type="email" placeholder="contact email" class="w-25 " id="email"  required><br><br>
 
             <button type="submit" class="btn btn-primary w-25">hire</button><br><br>
 
@@ -93,8 +93,8 @@
         </tbody>
     </table>
     <div class="text-center">
-        <p id="add" class="bg-success p-3 fs-4">total empolye list</p>
-        <p id="add2" class="bg-danger p-3 fs-4">total salary</p>
+        <p id="add" class="bg-success p-3 fs-4">total employe is=0</p>
+        <p id="add2" class="bg-danger p-3 fs-4">total salary is=0</p>
     </div>
 </body>
 <script src="./script.js"></script>
