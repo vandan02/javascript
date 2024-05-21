@@ -41,6 +41,8 @@ const Ui = () => {
 
     let img = document.createElement("img");
     img.src = ele.img;
+    div3.setAttribute("class", "image");
+
     let div = document.createElement("div");
     div.innerHTML = `pname: ${ele.title}`;
     let div1 = document.createElement("div");
