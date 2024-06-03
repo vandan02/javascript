@@ -192,67 +192,87 @@ let questions = [
     }
 ];
 
-questions.map((ele,i) => {
-    // document.getElementById("quize").innerHTML =""
-
-    let question = document.createElement("h3");
-        question.innerHTML =`${i+1}.${ele.question}`
-
-    let answer1 = document.createElement("button");
-    answer1.innerHTML =` A. ${ele.options.A}`
-
-    let answer2 = document.createElement("button")
-    answer2.innerHTML =`B. ${ele.options.B}`
-
-    let answer3 = document.createElement("button")
-    answer3.innerHTML =`C. ${ele.options.C}`
-
-    let answer4 = document.createElement("button")
-    answer4.innerHTML =`D. ${ele.options.D}`
-
-    document.getElementById("quize").append(question, answer1, answer2, answer3, answer4)
-    let true1=ele.correct
-
-    answer1.addEventListener("click",() => {
-        if(true1=="A"){
-            answer1.style.background="green"
-            answer1.style.color="white"
-        }
-        else{
-            answer1.style.background="red"
-            answer1.style.color="white"
-        }
+const uimaker=()=>{
+     document.getElementById("quize").innerHTML =""
+        // document.getElementById("data").innerHTML=""
+    questions.map((ele,i) => {
+      
+        let question = document.createElement("h3");
+            question.innerHTML =`${i+1}.${ele.question}`
+    
+        let answer1 = document.createElement("button");
+        answer1.innerHTML =` A. ${ele.options.A}`
+    
+        let answer2 = document.createElement("button")
+        answer2.innerHTML =`B. ${ele.options.B}`
+    
+        let answer3 = document.createElement("button")
+        answer3.innerHTML =`C. ${ele.options.C}`
+    
+        let answer4 = document.createElement("button")
+        answer4.innerHTML =`D. ${ele.options.D}`
+    
+        document.getElementById("quize").append(question, answer1, answer2, answer3, answer4)
+        let true1=ele.correct
+    
+        answer1.addEventListener("click",() => {
+            if(true1=="A"){
+                answer1.style.background="green"
+                answer1.style.color="white"
+            }
+            else{
+                answer1.style.background="red"
+                answer1.style.color="white"
+            }
+        })
+        answer2.addEventListener("click",() => {
+            if(true1=="B"){
+                answer2.style.background="green"
+                answer2.style.color="white"
+            }
+            else{
+                answer2.style.background="red"
+                answer2.style.color="white"
+            }
+        })
+        answer3.addEventListener("click",() => {
+            if(true1=="C"){
+                answer3.style.background="green"
+                answer3.style.color="white"
+            }
+            else{
+                answer3.style.background="red"
+                answer3.style.color="white"
+            }
+        })
+        answer4.addEventListener("click",() => {
+            if(true1=="D"){
+                answer4.style.background="green"
+                answer4.style.color="white"
+            }
+            else{
+                answer4.style.background="red"
+                answer4.style.color="white"
+            }
+        })
+    
+       
     })
-    answer2.addEventListener("click",() => {
-        if(true1=="B"){
-            answer2.style.background="green"
-            answer2.style.color="white"
-        }
-        else{
-            answer2.style.background="red"
-            answer2.style.color="white"
-        }
+}
+document.getElementById("data").addEventListener("submit",(e)=>{
+    e.preventDefault();
+    let adddata={
+        question:document.getElementById("question").value,
+        "options": {
+        A: document.getElementById("A").value,
+        B: document.getElementById("B").value,
+        C:document.getElementById("C").value,
+        D: document.getElementById("D").value,
+        },
+        correct:document.getElementById("correct").value
+        
+    }
+    questions.push(adddata)
+    uimaker()
     })
-    answer3.addEventListener("click",() => {
-        if(true1=="C"){
-            answer3.style.background="green"
-            answer3.style.color="white"
-        }
-        else{
-            answer3.style.background="red"
-            answer3.style.color="white"
-        }
-    })
-    answer4.addEventListener("click",() => {
-        if(true1=="D"){
-            answer4.style.background="green"
-            answer4.style.color="white"
-        }
-        else{
-            answer4.style.background="red"
-            answer4.style.color="white"
-        }
-    })
-
-   
-})
+uimaker()

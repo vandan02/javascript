@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    img{width: 300px;height: 300px; }
+    .css{text-align: center; }
+    .css2{border: 1px solid; border-radius: 10px; text-align: center;}
+    .div{margin: 10px; border: 1px solid; border-radius: 10px;}
+  </style>
+  <body>
+    <div style="display: flex; justify-content: center;">
+      <div style="border-right: 1px solid; padding: 10px;;" >
+      <form id="CollectData" style="text-align: center;">
+        <h2 style="text-align: center;">add account </h2>
+
+        <input type="text" id="AccName" placeholder="Enter UserName" />
+        <br />
+        <input type="number" id="AccNo" placeholder="Enter Account No" />
+        <br />
+        
+        <input type="number" id="MoNumber" placeholder="Enter User Mobile Number" />
+        <br />
+        <input type="submit" id="cbtn"/>
+      </form>
+
+      <form id="Deposite" >
+        <br>
+        <input type="number" id="cash" placeholder="Enter Deposite Amount" /><br>
+      
+        <button id="push">Deposite</button>
+        <button id="btn">Check Balance</button>
+      </form>
+  
+    <div id="Display"  ></div>
+  </div>
+ 
+    <div id="products" style="display: flex"></div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
