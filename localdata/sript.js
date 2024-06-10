@@ -6,5 +6,4 @@ form.addEventListener("submit",(e) => {
     console.log(name,emial,number);
     e.preventDefault();
 alert("hello")
-
 });
