@@ -1,11 +1,16 @@
-let add = JSON.parse(localStorage.getItem("products")) || [];
+let add = JSON.parse(localStorage.getItem("details")) || [];
+
+  const getValue=(id)=>{
+
+    return document.getElementById(id).value;
+  }
 
 const data = (e) => {
   e.preventDefault();
   let products = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    num: document.getElementById("num").value,
+    name: getValue("name"),
+    email: getValue("email"),
+    num: getValue("num"),
   };
   add.push(products);
 
