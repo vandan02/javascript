@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashbord</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .w-25 {
+            border: none;
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        #fireall {
+            background-color: red;
+        }
+
+        #a,
+        #b,
+        #c,
+        #d,
+        #e,
+        #f,
+        #g,
+        h2 {
+            background-color: #5a5454;
+        }
+
+        #tbody td,
+        center {
+            background-color: rgb(154, 159, 164);
+        }
+    </style>
+</head>
+
+<body>
+   
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/live-project/index.html">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./dashbord.html">dashbord</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./mybook.html">mybook</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " id="logout" href="./mybookmark.html" >mybookmark</a>
+              </li>
+              
+         
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <table class="table">
+        <thead>
+
+            <tr>
+                <th id="a">boookname</th>
+                <th id="b">autorname</th>
+                <th id="c">description</th>
+                <th id="d">date</th>
+                <th id="e">prise</th>
+                <th id="f">category</th>
+                <th id="g">bookmark</th>
+                <th id="i">buy</th>
+                
+            </tr>
+
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+
+</body>
+<script>
+let arr =JSON.parse(localStorage.getItem("books"))||[];
+    const add = (index) => {
+     
+  arr.splice(index, 1);
+  localStorage.setItem("books", JSON.stringify(arr));
+  uimaker();
+};
+const buy = (index) => {
+    localStorage.setItem("bookmark", JSON.stringify(arr)||[]);
+  arr.splice(index, 1);
+  localStorage.setItem("books", JSON.stringify(arr));
+  uimaker();
+};  
+    
+    const uimaker = () => {
+      document.getElementById("tbody").innerHTML = "";
+
+      arr.map((ele, i) => {
+        let tr = document.createElement("tr");
+        let td1 = document.createElement("td");
+        td1.innerHTML = ele.bookname;
+        let td2 = document.createElement("td");
+        td2.innerHTML = ele.author;
+        let td3 = document.createElement("td");
+        td3.innerHTML = ele.description;
+        let td4 = document.createElement("td");
+        td4.innerHTML = ele.date;
+        let td5 = document.createElement("td");
+        td5.innerHTML = ele.prise;
+        let td6 = document.createElement("td");
+        td6.innerHTML = ele.category;
+        let td7 = document.createElement("td");
+        td7.innerHTML = "bookmark";
+        td7.addEventListener("click", () => buy(i));
+        let td8 = document.createElement("th");
+        td8.innerHTML = "buy";
+        td8.style.backgroundColor = "green";
+        td8.addEventListener("click", () => add(i));
+    
+  
+        tr.append(td1, td2, td3, td4, td5, td6, td7, td8);
+        document.getElementById("tbody").append(tr);
+    
+     
+      });
+
+   
+    };
+    
+ 
+   uimaker()
+    
+ 
+    </script>
+
+</html>
