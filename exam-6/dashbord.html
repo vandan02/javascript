@@ -32,7 +32,8 @@
         #e,
         #f,
         #g,
-        h2 {
+        h2,
+        #i {
             background-color: #5a5454;
         }
 
@@ -99,14 +100,18 @@ let arr =JSON.parse(localStorage.getItem("books"))||[];
     const add = (index) => {
      
   arr.splice(index, 1);
+  alert("books is purchased");
   localStorage.setItem("books", JSON.stringify(arr));
   uimaker();
+  
 };
 const buy = (index) => {
-    localStorage.setItem("bookmark", JSON.stringify(arr)||[]);
+  alert("bookmark done");
   arr.splice(index, 1);
+  localStorage.setItem("bookmark", JSON.stringify(arr));
   localStorage.setItem("books", JSON.stringify(arr));
   uimaker();
+  location.reload();
 };  
     
     const uimaker = () => {

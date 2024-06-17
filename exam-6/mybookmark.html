@@ -149,13 +149,13 @@ const buy = (index) => {
  
    uimaker(arr)
     
-   const filter = (BookCategory) =>{
-    let temp = buyBook.filter((ele)=> ele.BookCategory == BookCategory)
-    console.log(temp);
+   const filter = (Category) =>{
+    let temp =arr.filter((ele)=> ele.category == Category)
+  
     uimaker(temp)
 
 }
-document.getElementById("All").addEventListener("click",()=>ui(buyBook))
+document.getElementById("all").addEventListener("click",()=>uimaker(arr))
 document.getElementById("Fantasy").addEventListener("click",()=>filter("Fantasy"))
 document.getElementById("superpower").addEventListener("click",()=>filter("superpower"))
 document.getElementById("drama").addEventListener("click",()=>filter("drama"))
