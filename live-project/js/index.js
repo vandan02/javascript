@@ -14,5 +14,5 @@ else{
 document.getElementById("logout").addEventListener("click",(e)=>{
     e.preventDefault()
     localStorage.removeItem("islogin")
-    window.location.href="/live-project/index.html"
+   window.location.href="/live-project/pages/login.html"
 })

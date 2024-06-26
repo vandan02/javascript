@@ -1,15 +1,14 @@
-import getdata from "../components/helper.js";
-import nav from "../components/navbar.js";
+import navbar from "../component/navbar.js";
 
-
-document.getElementById("navbar").innerHTML=nav()
+document.getElementById("navbar").innerHTML=navbar()
 
 const handel=(e)=>{
     e.preventDefault();
     let data={
-        name:getdata("name"),
-        email:getdata("email"),
-        password:getdata("password"),
+        name:document.getElementById("name").value,
+        email:document.getElementById("email").value,
+        password:document.getElementById("password").value,
+        data:[]
     }
 
     localStorage.setItem("user",JSON.stringify(data))
@@ -18,5 +17,4 @@ const handel=(e)=>{
 }
 
 document.getElementById("form").addEventListener("submit", handel)
-
 

@@ -16,6 +16,10 @@ const nav=(login = "login", signup = "signup")=>{
           <li class="nav-item">
             <a class="nav-link" href="/live-project/pages/addproduct.html">addproduct</a>
           </li>
+            <li class="nav-item">
+            <a class="nav-link " href="/live-project/pages/cart.html" >cart</a>
+          </li>
+     
           <li class="nav-item">
             <a class="nav-link " id="logout" href="/live-project/pages/login.html" >${login}</a>
           </li>
