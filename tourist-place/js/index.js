@@ -2,11 +2,11 @@ import navbar from "../component/navbar.js";
 
 document.getElementById("navbar").innerHTML=navbar()
 
-let product=JSON.parse(localStorage.getItem("product"));
+let product=JSON.parse(localStorage.getItem("products"));
 const like=(index)=>{
     product[index].like+=1  
-    console.log(product[index].like);
-    localStorage.setItem("product",JSON.stringify(product))
+ 
+    localStorage.setItem("products",JSON.stringify(product))
     uimaker(product)
 }
 let data=JSON.parse(localStorage.getItem("user"))||[]
@@ -15,11 +15,10 @@ const wish=(index)=>{
     data.push(product[index])
   localStorage.setItem("user",JSON.stringify(data))
     uimaker(product)
-    console.log(product[index]);
-    console.log(data);
+   
 }
 
-
+let a=[]
 
 const uimaker=(item)=>{
  document.getElementById("show").innerHTML=""
@@ -46,8 +45,9 @@ div.append(btn,btn2)
 let div2=document.createElement("div");
 div2.append(img,h2,p,btn,btn2,div)
 
-div2.addEventListener("click",(i)=>{
-
+div2.addEventListener("click",()=>{
+    
+localStorage.setItem("index",i)
 window.location.href="/tourist-place/pages/wishlist.html"
 })
 document.getElementById("show").append(div2);
@@ -61,16 +61,17 @@ const handleSearch = (value) => {
 }
 
 const handleKeypress = (e) => {
-    //  enter keypress
-    //   if(e.key=="Enter") {
-        let searchValue =document.getElementById("searchValue").value;
-        handleSearch(searchValue)
-    //   }
-
+e.preventDefault()
+      if(e.key=="Enter") 
+        {   
+        let search =document.getElementById("search").value;
+        handleSearch(search)
+      }
+else{}
 }
 
 
-document.getElementById("searchValue").addEventListener("keypress", handleKeypress)
+document.getElementById("search").addEventListener("keypress", handleKeypress)
 
 
 
