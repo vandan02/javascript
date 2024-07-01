@@ -55,7 +55,7 @@ const mapper=(data)=>{
        btn.innerHTML="buy now"
        btn.addEventListener("click",()=>{
         localStorage.setItem("index",ele.id)
-        window.location.href="http://127.0.0.1:5500/page.html"
+        window.location.href="http://127.0.0.1:5500/exam8/page.html"
        })
        div.append(img,title,category,price,btn)
        document.getElementById("data").append(div)
