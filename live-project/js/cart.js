@@ -5,14 +5,25 @@ import nav from "../components/navbar.js";
 document.getElementById("navbar").innerHTML=nav()
 let data = JSON.parse(localStorage.getItem("cart")) || []
 
+const totalprice=(data)=>{
+document.getElementById("price").innerHTML=`total price: ${data}`
+
+let discount= data * 0.1
+let price=data
+let total=data-discount
+document.getElementById("discount").innerHTML=`total discount(10%): ${discount}`
+document.getElementById("total").innerHTML=`payable amount: ${total}`
+}
+
+document.getElementById("v").innerHTML=`total product is :- ${data.length}`
 const handleDelete = (index) => {
     data.splice(index, 1)
-    document.getElementById("count").innerHTML=data.length
+    document.getElementById("v").innerHTML=`total product is :- ${data.length}`
     Mapper(data)
     localStorage.setItem("cart", JSON.stringify(data))
 }
 
-
+console.log(data.length);
 const handleQty = (index, opr) => {
 
     if (opr == "+") {
@@ -35,8 +46,10 @@ const handleQty = (index, opr) => {
 
 }
 const Mapper = (cart) => {
+    let total=0
     document.getElementById("tbody").innerHTML = ""
     cart.map((item, i) => {
+        total+=item.price*item.qty
         let td1 = document.createElement("td")
         let img = createTag("img", item.img)
         td1.append(img)
@@ -63,5 +76,6 @@ const Mapper = (cart) => {
         document.getElementById("tbody").append(tr)
 
     })
+    totalprice(total)
 }
 Mapper(data)
