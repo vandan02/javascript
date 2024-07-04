@@ -14,6 +14,7 @@ const handel=(e)=>{
 
     localStorage.setItem("user",JSON.stringify(data))
     localStorage.setItem("islogin",true)
+     window.location.href="/live-project/index.html"
     document.getElementById("navbar").innerHTML=nav("logout",data.name)
 }
 

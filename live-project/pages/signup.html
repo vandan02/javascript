@@ -1,179 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous"
-  />
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"
-  ></script>
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        form{
-            width: 550px;
-     
-            padding: 10px;
-            background-color: aliceblue; 
-            box-shadow: 0px 0px 500px 60px red;
-            position: absolute;
-            top: 250px;
-            left: 500px;
-        }
-        input{
-            margin: 10px;
-            font-size: 20px;
-            display: block;
-        }
-        input{
-            width: 90%;
-            padding: 4px;
-        }
-        button{
-            width: 100px;
-            margin: 10px auto;
-        }
-        #submit{
-            background-color: rgb(4, 0, 255);
-            color: rgb(255, 255, 255);
-            cursor: pointer;
-            border: none;
-            font-size: 20px;
-            border-radius: 10px;
-            padding: 8px;
-        }
-        #submit:hover{
-            background-color: rgb(11, 11, 28);
-            color: rgb(255, 255, 255);
-            transition: 0.8s ;
-        }
-   
-
-
-
-
-
+      body {
+        background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlqrOdi5H4rGdV5O_3cxrJ7xtki5e2YQswMA&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNhcxJj4uy1wF5B-Q_ofmSMTP-o90HtRor7w&s);
+        background-size: cover;
+      }
+      form {
+        width: 550px;
+        margin: auto;
+        align-items: center;
+        padding: 10px;
+        background-color: transparent;
+      }
+      input {
+        margin: 10px;
+        font-size: 20px;
+        display: block;
+        background-color: transparent;
+      }
+      input {
+        width: 90%;
+        padding: 4px;
+        border: 1px solid pink;
+      }
+      button {
+        width: 100px;
+        margin: 10px auto;
+      }
+      #submit {
+        background-color: transparent;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        border: none;
+        font-size: 20px;
+        border-radius: 10px;
+        padding: 8px;
+      }
+      #submit:hover {
+        background-color: rgb(4, 0, 255);
+        color: rgb(255, 255, 255);
+        transition: 0.8s;
+      }
     </style>
-</head>
-<body style="background-color: rgba(255, 127, 127, 0.543);">
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div class="links">
+      <form action="" id="form">
+        <label for="name">name</label>
+        <input type="text" name="name" id="name" required />
 
-  <canvas> </canvas>
-    
-    <div class="links" >
-        <div id="navbar" style="top:0px; width: 100%; position: absolute;"></div>
-        <form action="" id="form">
-            <label for="name">name</label>
-            <input type="text" name="name" id="name" required>
-    
-            <label for="email">email</label>
-            <input type="email" name="email" id="email" required>
-    
-            <label for="password">password</label>
-            <input type="password" name="password" id="password" required>
-           
-          <input type="submit">
-            <div ><a style="color: blue; " href="./login.html">already have account?</a></div>
-        </form>
-       
-</div>
-</body>
-<script src="../js/signup.js" type="module"></script>
-<script>
-const canvas = document.querySelector("canvas");
-    const ctx = canvas.getContext('2d');
-    
-    // for intro motion
-    let mouseMoved = false;
-    
-    const pointer = {
-        x: .5 * window.innerWidth,
-        y: .5 * window.innerHeight,
-    }
-    const params = {
-        pointsNumber: 40,
-        widthFactor: .3,
-        mouseThreshold: .6,
-        spring: .4,
-        friction: .5
-    };
-    
-    const trail = new Array(params.pointsNumber);
-    for (let i = 0; i < params.pointsNumber; i++) {
-        trail[i] = {
-            x: pointer.x,
-            y: pointer.y,
-            dx: 0,
-            dy: 0,
-        }
-    }
-    
-    window.addEventListener("click", e => {
-        updateMousePosition(e.pageX, e.pageY);
-    });
-    window.addEventListener("mousemove", e => {
-        mouseMoved = true;
-        updateMousePosition(e.pageX, e.pageY);
-    });
-    window.addEventListener("touchmove", e => {
-        mouseMoved = true;
-        updateMousePosition(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
-    });
-    
-    function updateMousePosition(eX, eY) {
-        pointer.x = eX;
-        pointer.y = eY;
-    }
-    
-    setupCanvas();
-    update(0);
-    window.addEventListener("resize", setupCanvas);
-    
-    
-    function update(t) {
-    
-        // for intro motion
-        if (!mouseMoved) {
-            pointer.x = (.5 + .3 * Math.cos(.002 * t) * (Math.sin(.005 * t))) * window.innerWidth;
-            pointer.y = (.5 + .2 * (Math.cos(.005 * t)) + .1 * Math.cos(.01 * t)) * window.innerHeight;
-        }
-    
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        trail.forEach((p, pIdx) => {
-            const prev = pIdx === 0 ? pointer : trail[pIdx - 1];
-            const spring = pIdx === 0 ? .4 * params.spring : params.spring;
-            p.dx += (prev.x - p.x) * spring;
-            p.dy += (prev.y - p.y) * spring;
-            p.dx *= params.friction;
-            p.dy *= params.friction;
-            p.x += p.dx;
-            p.y += p.dy;
-        });
-    
-        ctx.lineCap = "round";
-         ctx.beginPath();
-        ctx.moveTo(trail[0].x, trail[0].y);
-    
-        for (let i = 1; i < trail.length - 1; i++) {
-            const xc = .5 * (trail[i].x + trail[i + 1].x);
-            const yc = .5 * (trail[i].y + trail[i + 1].y);
-            ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
-            ctx.lineWidth = params.widthFactor * (params.pointsNumber - i);
-            ctx.stroke();
-        }
-        ctx.lineTo(trail[trail.length - 1].x, trail[trail.length - 1].y);
-        ctx.stroke();
-        
-        window.requestAnimationFrame(update);
-    }
-    
-    function setupCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }</script>
+        <label for="email">email</label>
+        <input type="email" name="email" id="email" required />
+
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" required />
+
+        <input id="submit" type="submit" />
+        <div>
+          <a style="color: blue" href="./login.html">already have account?</a>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="../js/signup.js" type="module"></script>
 </html>

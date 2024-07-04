@@ -2,11 +2,11 @@ import navbar from "../component/navbar.js";
 
 document.getElementById("navbar").innerHTML=navbar()
 
-let product=JSON.parse(localStorage.getItem("products"));
+let product=JSON.parse(localStorage.getItem("productss"));
 const like=(index)=>{
     product[index].like+=1  
  
-    localStorage.setItem("products",JSON.stringify(product))
+    localStorage.setItem("productss",JSON.stringify(product))
     uimaker(product)
 }
 let data=JSON.parse(localStorage.getItem("user"))||[]
@@ -15,10 +15,9 @@ const wish=(index)=>{
     data.push(product[index])
   localStorage.setItem("user",JSON.stringify(data))
     uimaker(product)
-   
 }
 
-let a=[]
+// let a=[]
 
 const uimaker=(item)=>{
  document.getElementById("show").innerHTML=""
@@ -48,7 +47,7 @@ div2.append(img,h2,p,btn,btn2,div)
 div2.addEventListener("click",()=>{
     
 localStorage.setItem("index",i)
-window.location.href="/tourist-place/pages/wishlist.html"
+window.location.href="http://127.0.0.1:5500/exam/tourist-place/pages/wishlist.html"
 })
 document.getElementById("show").append(div2);
 

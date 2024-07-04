@@ -8,17 +8,17 @@ const navbar=()=>{
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/tourist-place/pages/index.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="/exam/tourist-place/pages/index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/tourist-place/pages/add.html">add-new-place</a>
+            <a class="nav-link" href="/exam/tourist-place/pages/add.html">add-new-place</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link " href="/tourist-place/pages/login.html" >login</a>
+            <a class="nav-link " href="/exam/tourist-place/pages/login.html" >login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="/tourist-place/pages/singup.html" >singup</a>
+            <a class="nav-link " href="/exam/tourist-place/pages/singup.html" >singup</a>
           </li>
         </ul>
         <form class="d-flex">
