@@ -13,6 +13,17 @@ let price=data
 let total=data-discount
 document.getElementById("discount").innerHTML=`total discount(10%): ${discount}`
 document.getElementById("total").innerHTML=`payable amount: ${total}`
+document.getElementById("buy").addEventListener("click",()=>{
+    if(total<0){
+alert("your item has been deleverded in your rugistered account")
+
+localStorage.removeItem("cart")
+Window.location.reload()
+}
+else{ 
+alert("please add some product")
+}
+})
 }
 
 document.getElementById("v").innerHTML=`total product is :- ${data.length}`
@@ -38,6 +49,7 @@ const handleQty = (index, opr) => {
          
             alert("qty should be greater than 1")
         }
+
     }
 
     Mapper(data)
