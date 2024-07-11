@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": "24f2",
+      "name": "vandan",
+      "email": "vandanpatel493@gmail.com",
+      "password": "9106011507"
+    },
+    {
+      "id": "3f0f",
+      "name": "",
+      "email": "hanterhantar@gmail.com",
+      "password": ""
+    },
+    {
+      "id": "508b",
+      "name": "",
+      "email": "vandan5272@gmail.com",
+      "password": ""
+    },
+    {
+      "id": "923a",
+      "name": "",
+      "email": "vandan52@gmail.com",
+      "password": ""
+    },
+    {
+      "id": "cf91",
+      "name": "",
+      "email": "hanterantar@gmail.com",
+      "password": ""
+    },
+    {
+      "id": "ae36",
+      "name": "",
+      "email": "hantehantar@gmail.com",
+      "password": ""
+    }
+  ],
+  "cart": [],
+  "products": [],
+  "orders": []
+}

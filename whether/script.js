@@ -17,7 +17,7 @@ let temp=document.createElement("div")
 temp.innerHTML=`${temprecher}°C`
 temp.setAttribute("class", "temp")
 let weather=document.createElement("div")
- weather.innerHTML=data.weather[0].main
+weather.innerHTML=data.weather[0].main
 
  let main=document.createElement("div")
  main.setAttribute("class","d-flex justify-content-center ")
@@ -52,6 +52,7 @@ wind.innerHTML="humidity"
 wind1.append(human1,wind)
 
 main1.append(logo3,wind1)
+
 let div4=document.createElement("div")
 div4.setAttribute("class","p-5")
 let flex=document.createElement("div")
@@ -59,17 +60,41 @@ flex.append(main,div4,main1)
 flex.setAttribute("class","d-flex")
 document.getElementById("show").append(temp,cityname,weather,flex)
 }
-
-
 const getwether=async(cityname)=>{
     let req =await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=36f7e546a0c8fd7265e9598b4daf6e50&units=metric`);
     let res=await req.json()
 console.log(res);
     mapper(res)
 }
-document.getElementById("weather").addEventListener("submit",(e)=>{
-    e.preventDefault();
-    let location=document.getElementById("City").value
+document.getElementById("weather").addEventListener("keypress",(e)=>{
+   
+    
+    console.log(e.key);
+    if(e.key=="Enter"){
+        e.preventDefault();
+   let location=document.getElementById("City").value
     getwether(location)
     let inter = setInterval(clock);
+    }
+  
 })
+
+const liveLocation = async (lat, long) => {
+
+    let req = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=b4c426c91009e3429c4af53c61fd6e9c&units=metric`)
+    let res = await req.json()
+    mapper(res)
+}
+
+const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(position => {
+        let lat = position.coords.latitude
+        let long = position.coords.longitude
+        liveLocation(lat, long)
+        console.log(lat, long);
+        let inter = setInterval(clock);
+    })
+}
+
+getLocation()
+
