@@ -14,6 +14,12 @@
         height: 700px;
     }
   
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+}
 #main{
     border: 1px solid black;
     padding: 10px;
@@ -32,12 +38,15 @@
     
 
     <form id="data">
-    <label>Login</label><br>
-    <label  for="email">email</label><br>
-    <input id="email" type="email" placeholder="enter your email"><br>
-    <label for="password">password</label><br>
-    <input id="password" type="password" placeholder="enter password"><br>
+        <div style="display: flex; justify-content: center;">
+    <label >Login</label>
+</div>
+    <label  for="email">email</label>
+    <input id="email" type="email" placeholder="enter your email">
+    <label for="password">password</label>
+    <input id="password" type="password" placeholder="enter password">
     <input type="submit" >
+    <a href="./singup.html">crate new account</a>
 </form>
 
 </div>

@@ -47,7 +47,7 @@ div2.append(img,h2,p,btn,btn2,div)
 div2.addEventListener("click",()=>{
     
 localStorage.setItem("index",i)
-window.location.href="http://127.0.0.1:5500/exam/tourist-place/pages/wishlist.html"
+window.location.href="/exam/tourist-place/pages/wishlist.html"
 })
 document.getElementById("show").append(div2);
 

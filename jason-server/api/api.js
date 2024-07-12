@@ -14,6 +14,11 @@
         let res = await req.json();
         return res;
     },
+    get1:async(email)=>{
+        let req = await fetch(`http://localhost:3000/users?email=${email}`);
+        let res = await req.json();
+        return res;
+    },
     patch: async(id,data)=>{
         let req = await fetch(`http://localhost:3000/users/${id}`,{
             method: 'PATCH',
@@ -27,3 +32,4 @@
         });
     }
   }
+

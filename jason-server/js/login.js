@@ -1,29 +1,40 @@
 import { userdata } from "../api/api.js";
 let arr = await userdata.get()
-document.getElementById("data").addEventListener("submit", (e) => {
+document.getElementById("data").addEventListener("submit",async (e) => {
     e.preventDefault();
-    let userdata = {
+    let data = {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
     }
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].email === userdata.email || arr[i].password === userdata.password) {
-            if (arr[i].email !== userdata.email) {
-                alert("user not found")
-                break
-            }
-            else if (arr[i].password !== userdata.password) {
-                alert("password mismatch")
-                break
-            }
-            else if (arr[i].email === userdata.email && arr[i].password === userdata.password) {
-                alert("login successful")
-                break;
-            }
-        }
-        else{
-            alert("user not found") 
-            break;
-        }
+    let email =await userdata.get1(data.email)
+
+    if (email.length == 0) {
+     alert("user not found")
+    } 
+    else if(email[0].password != data.password) {
+        alert("password mismatch")
     }
+    else {
+     alert("login success")
+    }
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i].email === userdata.email || arr[i].password === userdata.password) {
+    //         if (arr[i].email !== userdata.email) {
+    //             alert("user not found")
+    //             break
+    //         }
+    //         else if (arr[i].password !== userdata.password) {
+    //             alert("password mismatch")
+    //             break
+    //         }
+    //         else if (arr[i].email === userdata.email && arr[i].password === userdata.password) {
+    //             alert("login successful")
+    //             break;
+    //         }
+    //     }
+    //     else{
+    //         alert("user not found") 
+    //         break;
+    //     }
+    // }
     });

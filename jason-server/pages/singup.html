@@ -5,16 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid red; */
+        height: 700px;
+    }
+  input{
+    padding: 8px;
+    border-radius:8px ;
+  }
+    form{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 30px;
+}
+#main{
+    border: 1px solid black;
+    padding: 10px;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
 <body>
+<div class="main">
+    <div id="main">
     <form id="data">
-        <label for="name">name</label><br>
-        <input id="name" type="text" placeholder="enter your name"><br>
-        <label  for="email">email</label><br>
-        <input id="email" type="email" placeholder="enter your email"><br>
-        <label for="password">password</label><br>
-        <input id="password" type="password" placeholder="enter password"><br>
+        <label for="name">name</label>
+        <input id="name" type="text" placeholder="enter your name">
+        <label  for="email">email</label>
+        <input id="email" type="email" placeholder="enter your email">
+        <label for="password">password</label>
+        <input id="password" type="password" placeholder="enter password">
         <input type="submit" >
+        <a href="./login.html">alredy have an account</a>
     </form>
+</div>
+</div>
 </body>
 <script type="module" src="/js/singup.js"></script>
 </html>
