@@ -85,7 +85,6 @@ const liveLocation = async (lat, long) => {
     let res = await req.json()
     mapper(res)
 }
-
 const getLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
         let lat = position.coords.latitude
@@ -94,7 +93,8 @@ const getLocation = () => {
         console.log(lat, long);
         let inter = setInterval(clock);
     })
-}
-
+}   
 getLocation()
+
+
 
