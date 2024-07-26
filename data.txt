@@ -1,0 +1,350 @@
+1. Which of the following is a valid variable declaration in JavaScript?
+a) var 2name;
+b) var _name;
+c) var -name;
+d) var #name;
+Answer: b) var _name;
+
+2. What will the following code output? console.log(typeof NaN);
+a) number
+b) NaN
+c) object
+d) undefined
+Answer: a) number
+
+3. Which method is used to convert a JSON string into a JavaScript object?
+a) JSON.stringify()
+b) JSON.parse()
+c) JSON.objectify()
+d) JSON.convert()
+Answer: b) JSON.parse()
+
+4. What is the correct syntax to output "Hello World" in an alert box?
+a) alertBox("Hello World");
+b) msg("Hello World");
+c) alert("Hello World");
+d) msgBox("Hello World");
+Answer: c) alert("Hello World");
+
+5. Which of the following is not a reserved word in JavaScript?
+a) interface
+b) throws
+c) program
+d) short
+Answer: c) program
+
+6. What is the result of 2 + '2' in JavaScript?
+a) 4
+b) 22
+c) NaN
+d) undefined
+Answer: b) 22
+
+7. Which of the following is not a primitive data type in JavaScript?
+a) String
+b) Number
+c) Boolean
+d) Object
+Answer: d) Object
+
+8. What will console.log(0.1 + 0.2 === 0.3); output?
+a) true
+b) false
+c) undefined
+d) NaN
+Answer: b) false
+
+9. How can you create an object in JavaScript?
+a) var obj = {};
+b) var obj = Object.create();
+c) var obj = new Object();
+d) All of the above
+Answer: d) All of the above
+
+10. What is the output of console.log(typeof null);?
+a) null
+b) object
+c) undefined
+d) number
+Answer: b) object
+
+11. What is the use of the isNaN() function?
+a) To check if a value is not a number
+b) To convert a value to a number
+c) To check if a value is an array
+d) To check if a value is a string
+Answer: a) To check if a value is not a number
+
+12. Which of the following methods can be used to find the length of an array?
+a) arr.size
+b) arr.length
+c) arr.count
+d) arr.len
+Answer: b) arr.length
+
+13. What will console.log(typeof []); output?
+a) object
+b) array
+c) null
+d) undefined
+Answer: a) object
+
+14. Which statement can be used to terminate a loop, switch, or label statement?
+a) stop
+b) break
+c) end
+d) halt
+Answer: b) break
+
+15. What is the correct way to write a JavaScript array?
+a) var colors = "red", "green", "blue";
+b) var colors = ["red", "green", "blue"];
+c) var colors = (1:"red", 2:"green", 3:"blue");
+d) var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue");
+Answer: b) var colors = ["red", "green", "blue"];
+
+16. How do you write "Hello World" in an alert box?
+a) msg("Hello World");
+b) alert("Hello World");
+c) alertBox("Hello World");
+d) msgBox("Hello World");
+Answer: b) alert("Hello World");
+
+17. Which operator is used to assign a value to a variable?
+a) *
+b) -
+c) =
+d) x
+Answer: c) =
+
+18. What will the following code output? console.log(typeof undefined);
+a) null
+b) number
+c) undefined
+d) object
+Answer: c) undefined
+
+19. What is the correct JavaScript syntax to write "Hello World" to the console?
+a) System.out.println("Hello World");
+b) println("Hello World");
+c) console.log("Hello World");
+d) log.console("Hello World");
+Answer: c) console.log("Hello World");
+
+20. Which method can be used to add one or more elements to the end of an array?
+a) append()
+b) insert()
+c) add()
+d) push()
+Answer: d) push()
+
+21. How do you declare a JavaScript variable?
+a) var carName;
+b) variable carName;
+c) v carName;
+d) let carName;
+Answer: a) var carName;
+
+22. What does the "=== " operator do in JavaScript?
+a) It compares only values
+b) It compares only types
+c) It compares both values and types
+d) It assigns a value
+Answer: c) It compares both values and types
+
+23. What will console.log([] == []); output?
+a) true
+b) false
+c) undefined
+d) NaN
+Answer: b) false
+
+24. What will console.log(2 + "2" - 2); output?
+a) 2
+b) 20
+c) 22
+d) 0
+Answer: b) 20
+
+25. What is the correct way to call a function named myFunction?
+a) call myFunction()
+b) call function myFunction()
+c) myFunction()
+d) Call.myFunction()
+Answer: c) myFunction()
+
+26. How do you create a function in JavaScript?
+a) function myFunction() {}
+b) function
+() {}
+c) function = myFunction() {}
+d) function -> myFunction() {}
+Answer: a) function myFunction() {}
+
+27. Which event occurs when the user clicks on an HTML element?
+a) onmouseover
+b) onclick
+c) onchange
+d) onmouseclick
+Answer: b) onclick
+
+28. How do you round the number 7.25, to the nearest integer?
+a) Math.round(7.25)
+b) Math.rnd(7.25)
+c) round(7.25)
+d) rnd(7.25)
+Answer: a) Math.round(7.25)
+
+29. Which of the following is correct about features of JavaScript?
+a) JavaScript is a lightweight, interpreted programming language
+b) JavaScript is designed for creating network-centric applications
+c) JavaScript is complementary to and integrated with Java
+d) All of the above
+Answer: d) All of the above
+
+30. What will console.log(1 / 0); output?
+a) NaN
+b) Infinity
+c) 0
+d) undefined
+Answer: b) Infinity
+
+31. Which of the following is used to capture all arguments passed to a function?
+a) arguments
+b) args
+c) params
+d) parameters
+Answer: a) arguments
+
+32. Which method is used to remove the last element from an array?
+a) shift()
+b) remove()
+c) pop()
+d) delete()
+Answer: c) pop()
+
+33. How do you find the number with the highest value of x and y?
+a) Math.max(x, y)
+b) Math.ceil(x, y)
+c) Math.floor(x, y)
+d) top(x, y)
+Answer: a) Math.max(x, y)
+
+34. What will console.log(typeof []); output?
+a) object
+b) array
+c) null
+d) undefined
+Answer: a) object
+
+35. How do you comment in JavaScript?
+a) <!-- This is a comment -->
+b) // This is a comment
+c) # This is a comment
+d) ** This is a comment **
+Answer: b) // This is a comment
+
+36. What will console.log([] + []); output?
+a) 0
+b) []
+c) ""
+d) NaN
+Answer: c) ""
+
+37. What is the default value of an uninitialized variable in JavaScript?
+a) null
+b) undefined
+c) 0
+d) "" (empty string)
+Answer: b) undefined
+
+38. Which method can be used to find the HTML element with id="main"?
+a) document.getElementById("main")
+b) document.querySelector("#main")
+c) Both a and b
+d) None of the above
+Answer: c) Both a and b
+
+39. What will console.log(typeof NaN); output?
+a) NaN
+b) number
+c) object
+d) undefined
+Answer: b) number
+
+40. How can you detect the client's browser name in JavaScript?
+a) navigator.appName
+b) browser.name
+c) client.navName
+d) window.browserName
+Answer: a) navigator.appName
+
+41. Which method is used to join two or more arrays?
+a) combine()
+b) concat()
+c) join()
+d) merge()
+Answer: b) concat()
+
+42. What will console.log(5 + '5'); output?
+a) 10
+b) 55
+c) "10"
+d) "55"
+Answer: d) "55"
+
+43. Which statement can be used to skip an iteration in a loop?
+a) break
+b) skip
+c) pass
+d) continue
+Answer: d) continue
+
+44. How do you declare a JavaScript object?
+a) var obj = {key: "value"};
+b) var obj = [key: "value"];
+c) var obj = "key": "value";
+d) var obj = (key: "value");
+Answer: a) var obj = {key: "value"};
+
+45. What will console.log(typeof function() {}); output?
+a) function
+b) object
+c) undefined
+d) string
+Answer: a) function
+
+46. What does the splice() method do?
+a) Adds new elements to an array
+b) Removes elements from an array
+c) Replaces elements in an array
+d) All of the above
+Answer: d) All of the above
+
+47. Which method can be used to find the first element in an array that satisfies a given condition?
+a) find()
+b) findIndex()
+c) filter()
+d) map()
+Answer: a) find()
+
+48. What is the value of null == undefined?
+a) true
+b) false
+c) null
+d) undefined
+Answer: a) true
+
+49. Which of the following is not a built-in JavaScript object?
+a) Date
+b) Math
+c) Window
+d) Currency
+Answer: d) Currency
+
+50. What will console.log(!!false); output?
+a) true
+b) false
+c) undefined
+d) 0
+Answer: b) false

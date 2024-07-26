@@ -40,8 +40,3 @@
 }
 export {createTag}
 
-export const nav=()=>{
-    const nav=(login = "login", signup = "signup")=>{
-        return ``
-    }
-}

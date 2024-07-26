@@ -4,6 +4,8 @@ const handledata= async()=>{
     let req= await fetch("https://dummyjson.com/products")
     let res=await req.json()
      mapper(res.products)
+
+
      
   document.getElementById("all").addEventListener("click",()=>{
       mapper(res.products);
@@ -39,6 +41,7 @@ const filter=(category)=>{
 
 
 const mapper=(data)=>{
+    console.log(data);
    document.getElementById("data").innerHTML =""
     data.map((ele,i)=>{
        let img=document.createElement("img")

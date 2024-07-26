@@ -1,6 +1,12 @@
 import {  createTag, userdata } from "../com/json.js";
 
 let data = JSON.parse(localStorage.getItem("cart")) || []
+const handleDelete = (index) => {
+    data.splice(index, 1)
+    document.getElementById("v").innerHTML=`total product is :- ${data.length}`
+    Mapper(data)
+    localStorage.setItem("cart", JSON.stringify(data))
+}
 const handleQty = (index, opr) => {
 
     if (opr == "+") {

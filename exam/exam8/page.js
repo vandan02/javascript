@@ -3,13 +3,15 @@ let index= JSON.parse(localStorage.getItem("index"))
 const handledata= async(id)=>{
     let req= await fetch(`https://dummyjson.com/products/${id}`)
     let res=await req.json()
-    mapper(res)
+    console.log(res);
+
      
 }
 
 handledata(index)
 
 const mapper=(data)=>{
+   
     let img=document.createElement("img")
        img.src=data.thumbnail
        let title=document.createElement("h2")

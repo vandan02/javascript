@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "f5a0",
+      "email": "vandanpatel493@gmail.com",
+      "name": "vandan",
+      "role": "admin",
+      "password": "1"
+    },
+    {
+      "id": "5a0",
+      "email": "vandanpatel43@gmail.com",
+      "name": "vandan",
+      "role": "user",
+      "password": "1"
+    }
+  ]
+}
