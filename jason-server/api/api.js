@@ -58,3 +58,31 @@
     tagName == "img" ? tag.src = value : tag.innerHTML = value
     return tag
 }
+
+
+export const nav=()=>{
+   return `<nav class="navbar navbar-expand-lg  bg-dark">
+    <div class="container-fluid text-light">
+      <a class="navbar-brand text-light" href="/jason-server/pages/index.html">shoping</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-light active" aria-current="page" href="/jason-server/pages/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/jason-server/pages/cart.html">cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/jason-server/pages/login.html">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/jason-server/pages/singup.html">signup</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>`
+}

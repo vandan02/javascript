@@ -1,9 +1,7 @@
-import { userdata } from "../api/api.js";
+import { nav, userdata } from "../api/api.js";
 let arr = await userdata.get();
-const fatch =()=>{
 
-}
- 
+document.getElementById("navbar").innerHTML=nav()
 
 const data1 = async (e) => {
   e.preventDefault();

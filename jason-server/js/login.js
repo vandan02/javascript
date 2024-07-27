@@ -1,6 +1,8 @@
-import { userdata } from "../api/api.js";
+import { nav, userdata } from "../api/api.js";
 let arr = await userdata.get()
-document.getElementById("data").addEventListener("submit",async (e) => {
+
+document.getElementById("navbar").innerHTML=nav()
+document.getElementById("userdata").addEventListener("submit",async (e) => {
     e.preventDefault();
     let data = {
         email: document.getElementById("email").value,

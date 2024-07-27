@@ -1,102 +1,97 @@
-import { createTag, userdata } from "../api/api.js";
-let total=0;
-let discount;
-let topay=0;
+import { createTag, nav, userdata } from "../api/api.js";
+
+let total = 0;
+let discount = 0;
+let topay = 0;
+
 let Getcart = await userdata.cartget(userdata);
 
-const handleqty = (ele, index, opr) => {
-    if (opr == "+") {
-        let addqty = {
-            id: ele.id,
-            img: ele.images,
-            title: ele.title,
-            price: ele.price,
-            category: ele.category,
-            qty: ele.qty += 1,
-        }
-        userdata.patch( ele.id,addqty)
+document.getElementById("navbar").innerHTML = nav();
+
+const handleqty = async (ele, index, opr) => {
+    let updatedQty = ele.qty;
+
+    if (opr === "+") {
+        updatedQty += 1;
+    } else if (opr === "-" && ele.qty > 1) {
+        updatedQty -= 1;
+    } else {
+        alert("Quantity should be greater than 1");
+        return;
     }
-    else {
-        if (Getcart[index].qty > 1) {
-            let subqty = {
-                id: ele.id,
-                img: ele.img,
-                title: ele.title,
-                price: ele.price,
-                category: ele.category,
-                qty: ele.qty -= 1,
-            }
-            userdata.patch(subqty, ele.id)
-        }
-        else {
-            alert("quantity should be greater than 1")
-       
-        }
-    }
-    uimaker(Getcart)
+
+    let updatedItem = { ...ele, qty: updatedQty };
+    await userdata.patch(ele.id, updatedItem);
+
+    Getcart = await userdata.cartget(userdata);
+    uimaker();
 }
 
-const handledelete=(index)=>{
-    cart.deletecart(index)
-    uimaker(cart)
-
-    document.getElementById("count").innerHTML=cart.length
+const handledelete = async (index) => {
+    await userdata.delete(Getcart[index].id);
+    Getcart = await userdata.cartget(userdata);
+    uimaker();
 }
 
 const uimaker = () => {
+    total = 0;
+    document.getElementById("list").innerHTML = "";
 
-    document.getElementById("list").innerHTML = ""
+    Getcart.forEach((ele, i) => {
+        let tr = document.createElement("tr");
 
-    Getcart.map((ele, i) => {
+        let td1 = document.createElement("td");
+        let img = createTag("img", ele.images);
+        td1.append(img);
 
-        let td1 = document.createElement("td")
-        let img = createTag("img", ele.image)
-        td1.append(img)
+        let td2 = createTag("td", ele.title);
+        let td3 = createTag("td", ele.category);
+        let td4 = createTag("td", ele.price);
 
-        let td2 = createTag("td", ele.title)
-        let td3 =createTag("td", ele.category)
-        let td4 = createTag("td", ele.price)
+        let td5 = document.createElement("td");
+        let btn1 = createTag("button", "-");
+        btn1.addEventListener("click", () => handleqty(ele, i, "-"));
 
-        let td5 = document.createElement("td")
-        let btn1 = createTag("button", "-")
-        btn1.addEventListener("click", () => handleqty(ele,i, "-"))
+        let btn2 = createTag("button", ele.qty || 1);
+        let btn3 = createTag("button", "+");
+        btn3.addEventListener("click", () => handleqty(ele, i, "+"));
 
-        let btn2 = createTag("button", ele.qty)
-        let btn3 = createTag("button", "+")
-        btn3.addEventListener("click", () => handleqty(ele, i, "+"))
+        td5.append(btn1, btn2, btn3);
 
-        td5.append(btn1, btn2, btn3)
+        let itemTotal = ele.price * ele.qty;
+        total += itemTotal;
+        let td6 = createTag("td", Math.round(itemTotal));
 
-        let td6 = createTag("td", ele.price *ele.qty)
-        let td7 = document.createElement("td")
-        let btn = createTag("button", "Delete")
-        td7.append(btn)
-        btn.addEventListener("click", () => userdata.delete(ele.id))
+        let td7 = document.createElement("td");
+        let btn = createTag("button", "Delete");
+        btn.addEventListener("click", () => handledelete(i));
+        td7.append(btn);
 
-        let tr = document.createElement("tr")
-        tr.append(td1, td2, td3, td4, td5, td6, td7)
+        tr.append(td1, td2, td3, td4, td5, td6, td7);
+        document.getElementById("list").append(tr);
+    });
 
-        document.getElementById("list").append(tr)
+    discount = Math.round(total * 0.10);
+    topay = Math.round(total - discount);
 
-        total=total+ele.price *ele.qty
-
-        document.getElementById("bag").innerHTML=`Bag Total : ${total}`;
-        document.getElementById("topay").innerHTML=`You Pay : ${total}`;
-    })
-
+    document.getElementById("bag").innerHTML = `Total: ${Math.round(total)}`;
+    document.getElementById("discount").innerHTML = `Discount: ${discount}`;
+    document.getElementById("topay").innerHTML = `You Pay: ${topay}`;
 }
 
-uimaker(cart)
+uimaker();
 
-
-
-    discount=total*10/100;
-    document.getElementById("discount").innerHTML=`Discount : ${discount}`;
-
-    topay=total-discount;
-    document.getElementById("topay").innerHTML=`payebale emount :${topay}`;
-    
-
-document.getElementById("pay").addEventListener("click",()=>{
-    alert("Paid Successfully");
+document.getElementById("pay").addEventListener("click", async () => {
+    if (total > 0) {
+        alert("Your items have been delivered to your registered account.");
+        Getcart.map( async (ele)=>{
+            await userdata.delete(ele.id);
+        }) 
+           
+        total = 0;
+        uimaker();
+        window.location.reload();
+    } else {
+        alert("No data found");
+    }
 });

@@ -1,5 +1,8 @@
-import { createTag, userdata } from "../api/api.js";
+import { createTag, nav, userdata } from "../api/api.js";
 
+
+
+document.getElementById("navbar").innerHTML=nav()
 let product= await userdata.getproducts()
 let pro= await userdata.getproducts()
 console.log(product);
@@ -8,6 +11,7 @@ const addtoCart=()=>{
     let cart=JSON.parse(localStorage.getItem("cart")) || []
     cart.push(ele)
     localStorage.setItem("cart",JSON.stringify(cart))
+
     console.log("added to cart",ele);
  
 }
@@ -22,31 +26,36 @@ const isexists = (id) => {
 }
 
 const handlecart = (ele) => {
-    
     if (isexists(ele.id)) {
         Getcart.map((item) => {
             if (item.id == ele.id) {
+                ele.qty = 1;
                 let addqty = {
                     id: ele.id,
                     img: ele.img,
                     title: ele.title,
                     price: ele.price,
                     category: ele.category,
-                    qty: ele.qty += 1,
-                }
-                userdata.patch(ele.id,addqty)
+                    qty: ele.qty
+                };
+                userdata.patch(ele.id, addqty);
             }
-        })
-        alert("qty added to cart")
+        });
+        let addqty = {
+            id: ele.id,
+            img: ele.img,
+            title: ele.title,
+            price: ele.price,
+            category: ele.category,
+            qty: ele.qty=ele.qty+1
+        };
+        userdata.patch(ele.id, addqty);
+        alert("qty added to cart");
+    } else {
+        userdata.postcart({ ...ele, qty: 1 });
     }
-    else {
-
-        userdata.postcart({ ...ele, qty: 1 })
-    
-
-    }
-  
 }
+
 
 
 const mapper=(product)=>{
@@ -58,15 +67,13 @@ const mapper=(product)=>{
     let rating=createTag("p",`rating:${ele.rating}`)
     let catagory=createTag("p",`catagory:${ele.category}`)
     let btn=createTag("button","Add to cart")
-    let show=createTag("button","view details")
-    show.addEventListener("click",()=>{
-        localStorage.setItem("cart",JSON.stringify(ele))
-        
-    })
+
+    
     btn.addEventListener("click", () => handlecart(ele));
 
     let div=document.createElement("div")
-    div.append(img,name,price,rating,catagory,catagory,btn,show)
+    div.setAttribute("class","product")
+    div.append(img,name,price,rating,catagory,catagory,btn)
        document.getElementById("products").append(div)
     })
 
